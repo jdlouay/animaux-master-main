@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Espèce</th>
+              <th>Date de Naissance</th>
+              <th>Groupe</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let animal of animaux">
+              <td>{{ animal.idAnimal }}</td>
+              <td>{{ animal.nomAnimal }}</td>
+              <td>{{ animal.especeAnimal }}</td>
+              <td>{{ animal.dateNaissance | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ animal?.groupe?.nomGroupe }}</td>
+              <td>{{ animal.email }}</td>
+              <td>
+                <button
+                  class="btn btn-danger"
+                  (click)="supprimerAnimal(animal)"
+                >
+                  Supprimer
+                </button>
+                <a
+                  [routerLink]="['/updateAnimal', animal.idAnimal]"
+                  class="btn btn-success"
+                  >Modifier</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

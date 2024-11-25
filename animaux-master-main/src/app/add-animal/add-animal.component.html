@@ -1,0 +1,42 @@
+<form [formGroup]="animalForm">
+  <!-- Nom -->
+  <div class="col-12 col-md-6 mb-3">
+    <label for="nom" class="form-label">Nom Animal</label>
+    <input id="nom" type="text" formControlName="nom" class="form-control" />
+  </div>
+
+  <!-- Espèce Animal -->
+  <div class="col-12 col-md-6 mb-3">
+    <label for="especeanimal" class="form-label">Espèce Animal</label>
+    <input id="especeanimal" type="text" formControlName="especeanimal" class="form-control" />
+  </div>
+
+  <!-- Date de Naissance -->
+  <div class="col-12 col-md-6 mb-3">
+    <label for="date_naissance" class="form-label">Date de Naissance</label>
+    <input id="date_naissance" type="date" formControlName="date_naissance" class="form-control" />
+  </div>
+
+  <!-- Groupe -->
+  <div class="col-12 col-md-6 mb-3">
+    <label for="groupe" class="form-label">Groupe</label>
+    <select id="groupe" formControlName="groupe" class="form-control">
+      <option *ngFor="let groupe of groupes" [value]="groupe.idGroupe">
+        {{ groupe.nomGroupe }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Email -->
+  <div class="col-12 col-md-6 mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input id="email" type="email" formControlName="email" class="form-control" />
+  </div>
+
+  <!-- Submit Button -->
+  <div class="col-12 mt-3">
+    <button type="button" (click)="addAnimal()" class="btn btn-success" [disabled]="!animalForm.valid">
+      Ajouter
+    </button>
+  </div>
+</form>
